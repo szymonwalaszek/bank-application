@@ -1,9 +1,9 @@
 public class Bank {
     public static void main(String[] args) {
 
-    Account john = new Account("John Smith", "A00001");
+    Account account = new Account("John Smith", "A000001");
 
-    john.showMenu();
+    account.run();
 
     }
 }

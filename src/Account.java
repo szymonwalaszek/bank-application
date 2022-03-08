@@ -6,6 +6,7 @@ public class Account {
     private int previousTransaction;
     private String customerName;
     private String customerID;
+    private int PIN = 1234;
 
     public Account(String customerName, String customerID) {
         this.customerName = customerName;
@@ -28,9 +29,9 @@ public class Account {
 
     private void getPreviousTransaction() {
         if (previousTransaction > 0) {
-            System.out.println("Deposit: " + previousTransaction);
+            System.out.println("Deposit: $" + previousTransaction);
         } else if (previousTransaction < 0) {
-            System.out.println("Withdrawn: " + Math.abs(previousTransaction));
+            System.out.println("Withdrawn: $" + Math.abs(previousTransaction));
         } else {
             System.out.println("No transactions occurred.");
         }
@@ -41,11 +42,26 @@ public class Account {
         double newBalance = (balance * interestRate * years) + balance;
         System.out.println();
         System.out.println("Current interest rate is: " + (100 * interestRate));
-        System.out.println("-------------------------------------------");
         System.out.println("After " + years + " years your balance will be $" + newBalance);
     }
 
-    void showMenu() {
+    private void checkingPIN() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your PIN number: ");
+        int number = scanner.nextInt();
+        if (PIN == number) {
+            System.out.println("Correct PIN number!");
+            System.out.println("==========================");
+        } else {
+            System.out.println("==========================");
+            System.out.println("Wrong PIN number! Please try again!");
+            System.out.println("==========================");
+            checkingPIN();
+        }
+        }
+
+    void run() {
+        checkingPIN();
         char option = '\0';
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome, " + customerName + "!");
