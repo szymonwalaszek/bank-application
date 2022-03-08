@@ -4,9 +4,9 @@ public class Account {
 
     private int balance;
     private int previousTransaction;
-    private String customerName;
-    private String customerID;
-    private int PIN = 1234;
+    private final String customerName;
+    private final String customerID;
+    private final int PIN = 1234;
 
     public Account(String customerName, String customerID) {
         this.customerName = customerName;
@@ -14,14 +14,14 @@ public class Account {
     }
 
     private void deposit(int amount) {
-        if(amount != 0) {
+        if (amount != 0) {
             this.balance += amount;
             this.previousTransaction = amount;
         }
     }
 
     private void withdraw(int amount) {
-        if(amount != 0) {
+        if (amount != 0) {
             this.balance -= amount;
             this.previousTransaction = -amount;
         }
@@ -58,7 +58,7 @@ public class Account {
             System.out.println("==========================");
             checkingPIN();
         }
-        }
+    }
 
     void run() {
         checkingPIN();
