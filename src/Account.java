@@ -39,8 +39,10 @@ public class Account {
     private void calculateInterest(int years) {
         double interestRate = .0175;
         double newBalance = (balance * interestRate * years) + balance;
+        System.out.println();
         System.out.println("Current interest rate is: " + (100 * interestRate));
-        System.out.println("After " + years + " your balance will be " + newBalance);
+        System.out.println("-------------------------------------------");
+        System.out.println("After " + years + " years your balance will be $" + newBalance);
     }
 
     void showMenu() {
@@ -59,7 +61,7 @@ public class Account {
         System.out.println("F. Exit.");
         do {
             System.out.println();
-            System.out.println("Enter an option: ");
+            System.out.print("Enter an option: ");
             char customerChoice = scanner.next().charAt(0);
             option = Character.toUpperCase(customerChoice);
             System.out.println();
@@ -69,28 +71,24 @@ public class Account {
                     System.out.println("==========================");
                     System.out.println("Balance = $" + balance);
                     System.out.println("==========================");
-                    System.out.println();
                     break;
                 case 'B':
-                    System.out.println("Enter an amount to deposit: ");
+                    System.out.print("Enter an amount to deposit: ");
                     int amount = scanner.nextInt();
                     deposit(amount);
-                    System.out.println();
                     break;
                 case 'C':
-                    System.out.println("Enter an amount to withdraw: ");
+                    System.out.print("Enter an amount to withdraw: ");
                     int amount2 = scanner.nextInt();
                     withdraw(amount2);
-                    System.out.println();
                     break;
                 case 'D':
                     System.out.println("==========================");
                     getPreviousTransaction();
                     System.out.println("==========================");
-                    System.out.println();
                     break;
                 case 'E':
-                    System.out.println("Enter how many years of accrued interest: ");
+                    System.out.print("Enter how many years of accrued interest: ");
                     int years = scanner.nextInt();
                     calculateInterest(years);
                     break;
